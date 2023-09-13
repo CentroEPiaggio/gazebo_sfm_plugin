@@ -5,6 +5,7 @@ add_compile_options(-std=c++11)
 
 find_package(catkin REQUIRED COMPONENTS
   gazebo_ros
+  lightsfm
   roscpp
 )
 
@@ -14,7 +15,6 @@ find_package(gazebo REQUIRED)
 
 include_directories(include)
 include_directories(SYSTEM
-  /usr/local/include  #to find lightsfm
   ${Boost_INCLUDE_DIRS}
   ${catkin_INCLUDE_DIRS}
   ${GAZEBO_INCLUDE_DIRS}
@@ -30,7 +30,7 @@ link_directories(
 catkin_package(
   INCLUDE_DIRS include
   LIBRARIES PedestrianSFMPlugin
-  CATKIN_DEPENDS gazebo_ros roscpp
+  CATKIN_DEPENDS gazebo_ros lightsfm roscpp
 )
 
 
